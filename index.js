@@ -3,6 +3,7 @@ function solveMatrix() {
   const result = Papa.parse(
     document.getElementById('matrix').value.split(' ').join('')
   )
+  console.log(result)
   data.matrix = result.data
 
   if (invalidMatrix(data.matrix) || result.errors.length) {
@@ -58,7 +59,9 @@ function solveViaLaplace(data) {
   data.solutions.laplace = `A${solutionIndex + 1}`
 
   document.getElementById('laplace').innerHTML = tableHTML
-  document.getElementById('solutionLaplace').innerText = data.solutions.laplace
+  Array.from(document.getElementsByClassName('solutionLaplace')).forEach(
+    (el) => (el.innerText = data.solutions.laplace)
+  )
 }
 
 function solveViaWald(data) {
@@ -103,7 +106,9 @@ function solveViaWald(data) {
   data.solutions.wald = `A${solutionIndex + 1}`
 
   document.getElementById('wald').innerHTML = tableHTML
-  document.getElementById('solutionWald').innerText = data.solutions.wald
+  Array.from(document.getElementsByClassName('solutionWald')).forEach(
+    (el) => (el.innerText = data.solutions.wald)
+  )
 }
 
 function solveViaMaxMax(data) {
@@ -148,7 +153,9 @@ function solveViaMaxMax(data) {
   data.solutions.maxmax = `A${solutionIndex + 1}`
 
   document.getElementById('maxmax').innerHTML = tableHTML
-  document.getElementById('solutionMaxMax').innerText = data.solutions.maxmax
+  Array.from(document.getElementsByClassName('solutionMaxMax')).forEach(
+    (el) => (el.innerText = data.solutions.maxmax)
+  )
 }
 
 function solveViaSavage(data) {
@@ -231,7 +238,9 @@ function solveViaSavage(data) {
   data.solutions.savage = `A${solutionIndex + 1}`
 
   document.getElementById('savage').innerHTML = tableHTML
-  document.getElementById('solutionSavage').innerText = data.solutions.savage
+  Array.from(document.getElementsByClassName('solutionSavage')).forEach(
+    (el) => (el.innerText = data.solutions.savage)
+  )
 }
 
 function solveViaHurwicz(data) {}

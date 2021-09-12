@@ -62,12 +62,28 @@
     <div class="container">
       <div class="row">
         <h1>
-          Teoría de la decisión<a class="btn-flat waves-effect waves-light"
+          Teoría de la decisión<a
+            class="btn-flat waves-effect waves-light modal-trigger"
+            href="#help"
             ><i class="material-icons">help</i></a
           >
         </h1>
-        <!-- TODO: help btn -->
       </div>
+
+      <!-- HELP MODAL -->
+      <!-- TODO: help modal -->
+      <div id="help" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+            >Agree</a
+          >
+        </div>
+      </div>
+      <!-- HELP MODAL -->
 
       <!-- FORM -->
       <div class="row">
@@ -106,7 +122,7 @@
         <!-- LAPLACE -->
         <li>
           <div class="collapsible-header">
-            <strong>Laplace: <span id="solutionLaplace"></span></strong>
+            <strong>Laplace: <span class="solutionLaplace"></span></strong>
           </div>
           <div class="collapsible-body">
             <p>
@@ -130,7 +146,7 @@
             <div id="laplace" class="row"></div>
             <p>
               La alternativa óptima según Laplace es:
-              <strong><span id="solutionLaplace"></span></strong>
+              <strong><span class="solutionLaplace"></span></strong>
             </p>
           </div>
         </li>
@@ -139,7 +155,7 @@
         <!-- WALD -->
         <li>
           <div class="collapsible-header">
-            <strong>Wald: <span id="solutionWald"></span></strong>
+            <strong>Wald: <span class="solutionWald"></span></strong>
           </div>
           <div class="collapsible-body">
             <p>
@@ -155,7 +171,7 @@
             <div id="wald" class="row"></div>
             <p>
               La alternativa óptima según Wald es:
-              <strong><span id="solutionWald"></span></strong>
+              <strong><span class="solutionWald"></span></strong>
             </p>
           </div>
         </li>
@@ -164,7 +180,7 @@
         <!-- MAXMAX -->
         <li>
           <div class="collapsible-header">
-            <strong>MaxMax: <span id="solutionMaxMax"></span></strong>
+            <strong>MaxMax: <span class="solutionMaxMax"></span></strong>
           </div>
           <div class="collapsible-body">
             <p>
@@ -180,7 +196,7 @@
             <div id="maxmax" class="row"></div>
             <p>
               La alternativa óptima según MaxMax es:
-              <strong><span id="solutionMaxMax"></span></strong>
+              <strong><span class="solutionMaxMax"></span></strong>
             </p>
           </div>
         </li>
@@ -189,7 +205,7 @@
         <!-- SAVAGE -->
         <li>
           <div class="collapsible-header">
-            <strong>Savage: <span id="solutionSavage"></span></strong>
+            <strong>Savage: <span class="solutionSavage"></span></strong>
           </div>
           <div class="collapsible-body">
             <p>
@@ -209,7 +225,7 @@
             <div id="savage" class="row"></div>
             <p>
               La alternativa óptima según Savage es:
-              <strong><span id="solutionSavage"></span></strong>
+              <strong><span class="solutionSavage"></span></strong>
             </p>
           </div>
         </li>
@@ -269,6 +285,7 @@
       M.Collapsible.init(document.querySelectorAll('.collapsible'), {
         accordion: false,
       })
+      M.Modal.init(document.querySelectorAll('.modal'))
     })
   </script>
   <script src="index.js"></script>
