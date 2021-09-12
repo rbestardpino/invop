@@ -3,7 +3,6 @@ function solveMatrix() {
   const result = Papa.parse(
     document.getElementById('matrix').value.split(' ').join('')
   )
-  console.log(result)
   data.matrix = result.data
 
   if (invalidMatrix(data.matrix) || result.errors.length) {

@@ -74,12 +74,126 @@
       <!-- TODO: help modal -->
       <div id="help" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+          <h4>Teoría de la decisión</h4>
+          <p>
+            Esta página está hecha solo para resolver ejercicios, no hay nada de
+            teoría acá.
+          </p>
+          <p>
+            Ingresando la matriz en formato CSV, aclarando si es ganancia o
+            pérdida y dandole a solve te resuelve la matriz por todos los
+            distintos métodos.
+          </p>
+          <p>
+            Está hecha para que puedas copiar y pegar directamente desde y hacia
+            un Excel o Google Sheets. No hace falta que te ocupes de formatear
+            bien el input, la página se encarga de determinar cual es el
+            separador y cual el linebreak.
+          </p>
+          <p>Por ejemplo si querés resolver la siguiente tabla:</p>
+          <table class="striped centered">
+            <thead>
+              <tr>
+                <th></th>
+                <th>F1</th>
+                <th>F2</th>
+                <th>F3</th>
+                <th>F4</th>
+                <th>F5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>A1</strong></td>
+                <td>-30</td>
+                <td>10</td>
+                <td>15</td>
+                <td>20</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td><strong>A2</strong></td>
+                <td>-20</td>
+                <td>20</td>
+                <td>20</td>
+                <td>30</td>
+                <td>40</td>
+              </tr>
+              <tr>
+                <td><strong>A3</strong></td>
+                <td>-10</td>
+                <td>10</td>
+                <td>20</td>
+                <td>30</td>
+                <td>60</td>
+              </tr>
+              <tr>
+                <td><strong>A4</strong></td>
+                <td>-15</td>
+                <td>0</td>
+                <td>20</td>
+                <td>40</td>
+                <td>80</td>
+              </tr>
+              <tr>
+                <td><strong>A5</strong></td>
+                <td>-20</td>
+                <td>-15</td>
+                <td>10</td>
+                <td>40</td>
+                <td>90</td>
+              </tr>
+              <tr>
+                <td><strong>A6</strong></td>
+                <td>-30</td>
+                <td>-20</td>
+                <td>0</td>
+                <td>20</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td><strong>A7</strong></td>
+                <td>-50</td>
+                <td>-30</td>
+                <td>-20</td>
+                <td>0</td>
+                <td>40</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Podes ingresar cualquiera de los siguientes inputs y va a funcionar:
+          </p>
+          <ul>
+            <li>
+              - Separado por tabs (\t):
+              <pre>
+                -30	10	15	20	20
+                -20	20	20	30	40
+                -10	10	20	30	60
+                -15	0	20	40	80
+                -20	-15	10	40	90
+                -30	-20	0	20	100
+                -50	-30	-20	0	40
+              </pre>
+            </li>
+            <li>
+              - Separado por comas (,):
+              <pre>
+                -30,10,15,20,20
+                -20,20,20,30,40
+                -10,10,20,30,60
+                -15,0,20,40,80
+                -20,-15,10,40,90
+                -30,-20,0,20,100
+                -50,-30,-20,0,40
+              </pre>
+            </li>
+          </ul>
         </div>
         <div class="modal-footer">
           <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-            >Agree</a
+            ><i class="material-icons">check</i></a
           >
         </div>
       </div>

@@ -1,3 +1,7 @@
 table {
   border: 1px solid gray;
 }
+
+#help ul li {
+  white-space: pre-wrap;
+}
