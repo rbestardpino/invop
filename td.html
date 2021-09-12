@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="UTN, utn, FBRA, Investigación Operativa, IO, io, investigacion operativa, teoria de decision, decision, paula zanetti"
+    />
+    <meta name="author" content="Rodrigo Bestard Pino" />
+    <meta
+      name="description"
+      content="Simple página para resolver ejercicios de investigación operativa"
+    />
+    <title>Investigación Operativa</title>
+
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo center"
+          >Investigación Operativa</a
+        >
+        <ul id="nav-mobile" class="left">
+          <li>
+            <a
+              href="#"
+              data-target="slide-out"
+              class="sidenav-trigger show-on-large"
+              ><i class="material-icons">menu</i></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <ul id="slide-out" class="sidenav show-on-large">
+      <li>
+        <a class="sidenav-close" href="index.html">Home</a>
+      </li>
+      <li><a class="sidenav-close" href="td.html">Teoría de la decisión</a></li>
+    </ul>
+    <!-- NAVBAR -->
+
+    <div class="container">
+      <div class="row">
+        <h1>
+          Teoría de la decisión<a class="btn-flat waves-effect waves-light"
+            ><i class="material-icons">help</i></a
+          >
+        </h1>
+        <!-- TODO: help btn -->
+      </div>
+
+      <!-- FORM -->
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col l7 m9 s12">
+              <textarea id="matrix" class="materialize-textarea"></textarea>
+              <label for="matrix">Matriz en formato CSV</label>
+            </div>
+            <div class="input-field"></div>
+            <div class="input-field col l2 m3 s6">
+              <label>
+                <input
+                  id="ganancia"
+                  type="checkbox"
+                  class="filled-in"
+                  checked="checked"
+                />
+                <span>Ganancia</span>
+              </label>
+            </div>
+            <div class="input-field col l3 m12 s6">
+              <a class="waves-effect waves-light btn" onclick="solveMatrix()"
+                ><i class="material-icons right">functions</i>Solve</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="matrixTable" class="row"></div>
+      <!-- FORM -->
+
+      <!-- SOLUTIONS -->
+      <h3>Soluciones</h3>
+      <ul class="collapsible popout">
+        <!-- LAPLACE -->
+        <li>
+          <div class="collapsible-header">
+            <strong>Laplace: <span id="solutionLaplace"></span></strong>
+          </div>
+          <div class="collapsible-body">
+            <p>
+              El criterio de Laplace determina la alternativa óptima de una
+              matriz de ganancia de la siguiente manera (para una matriz de
+              pérdida es al reves):
+            </p>
+            <p>
+              &nbsp; 1. Se le asigna a todos los estados la misma probabilidad
+              de ocurrencia
+            </p>
+            <p>
+              &nbsp; 2. Para cada alternativa se calcula el valor esperado (VE)
+              realizando la suma de los valores de la alternativa y
+              multiplicando el resultado por la probabilidad dada
+            </p>
+            <p>
+              &nbsp; 3. Se escoge el valor esperado más alto y la alternativa
+              que lo contiene es la óptima
+            </p>
+            <div id="laplace" class="row"></div>
+            <p>
+              La alternativa óptima según Laplace es:
+              <strong><span id="solutionLaplace"></span></strong>
+            </p>
+          </div>
+        </li>
+        <!-- LAPLACE -->
+
+        <!-- WALD -->
+        <li>
+          <div class="collapsible-header">
+            <strong>Wald: <span id="solutionWald"></span></strong>
+          </div>
+          <div class="collapsible-body">
+            <p>
+              El criterio de Wald determina la alternativa óptima de una matriz
+              de ganancia de la siguiente manera (para una matriz de pérdida es
+              al reves):
+            </p>
+            <p>&nbsp; 1. De cada alternativa se selecciona el menor valor</p>
+            <p>
+              &nbsp; 2. Se toma el mayor de esos menores valores y la
+              alternativa que lo contiene es la óptima
+            </p>
+            <div id="wald" class="row"></div>
+            <p>
+              La alternativa óptima según Wald es:
+              <strong><span id="solutionWald"></span></strong>
+            </p>
+          </div>
+        </li>
+        <!-- WALD -->
+
+        <!-- MAXMAX -->
+        <li>
+          <div class="collapsible-header">
+            <strong>MaxMax: <span id="solutionMaxMax"></span></strong>
+          </div>
+          <div class="collapsible-body">
+            <p>
+              El criterio de MaxMax determina la alternativa óptima de una
+              matriz de ganancia de la siguiente manera (para una matriz de
+              pérdida es al reves):
+            </p>
+            <p>&nbsp; 1. De cada alternativa se selecciona el mayor valor</p>
+            <p>
+              &nbsp; 2. Se toma el mayor de esos mayores valores y la
+              alternativa que lo contiene es la óptima
+            </p>
+            <div id="maxmax" class="row"></div>
+            <p>
+              La alternativa óptima según MaxMax es:
+              <strong><span id="solutionMaxMax"></span></strong>
+            </p>
+          </div>
+        </li>
+        <!-- MAXMAX -->
+
+        <!-- SAVAGE -->
+        <li>
+          <div class="collapsible-header">
+            <strong>Savage: <span id="solutionSavage"></span></strong>
+          </div>
+          <div class="collapsible-body">
+            <p>
+              El criterio de Savage determina la alternativa óptima de una
+              matriz de ganancia de la siguiente manera (para una matriz de
+              pérdida es al reves):
+            </p>
+            <p>&nbsp; 1. Selecciono el mayor valor de cada estado natural</p>
+            <p>
+              &nbsp; 2. Calculo cada costo de oportunidad (CO) realizando la
+              resta entre ese mayor valor y el valor de la celda correspondiente
+            </p>
+            <p>
+              &nbsp; 3. Se elige el menor de los mayores costos de oportunidad
+              de cada alternativa y la alternativa que lo contiene es la óptima
+            </p>
+            <div id="savage" class="row"></div>
+            <p>
+              La alternativa óptima según Savage es:
+              <strong><span id="solutionSavage"></span></strong>
+            </p>
+          </div>
+        </li>
+        <!-- SAVAGE -->
+
+        <!-- HURWICZ -->
+        <li>
+          <div class="collapsible-header"><strong>Hurwicz: </strong></div>
+          <div class="collapsible-body">
+            <!-- TODO -->
+            <p>TODO</p>
+          </div>
+        </li>
+        <!-- HURWICZ -->
+      </ul>
+      <!-- SOLUTIONS -->
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Genérico</h5>
+            <p class="grey-text text-lighten-4">
+              Solo lo pongo porque no me gusta que quede vacío acá abajo
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li>
+                <a
+                  class="grey-text text-lighten-3"
+                  href="https://github.com/rbestardpino/invop"
+                  >Source code</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          Copyright (c) 2021 Rodrigo Bestard Pino
+          <a class="grey-text text-lighten-4 right" href="#!"
+            >Investigación Operativa</a
+          >
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER -->
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      M.Sidenav.init(document.querySelectorAll('.sidenav'))
+      M.Collapsible.init(document.querySelectorAll('.collapsible'), {
+        accordion: false,
+      })
+    })
+  </script>
+  <script src="index.js"></script>
+  <script src="PapaParse-5.0.2/papaparse.min.js"></script>
+</html>
